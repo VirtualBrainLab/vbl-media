@@ -1,0 +1,69 @@
+# Tutorial video scripts
+
+## Overview
+
+Hello! My name is Dan Birman and I am a postdoc working at the University of Washington building software tools for neuroscientists. In this video I want to give you a quick tour of the Virtual Brain Lab, so if you're just looking to learn about how to use Pinpoint you can skip this introduction. 
+
+So what are we doing here at the Virtual Brain Lab that's different from all the other open source tools out there? The answer is that we're experimenting with a shift in approach for scientific programming. There are two things that we're doing differently.
+
+First, our tools are browser-based so there's no installation required to use them. We do have desktop versions available if you need them but by building browser-first software we're hoping to make neuroscience tools more accessible.
+
+The second change in our approach is that we base all our of our programs around an intuitive and interactive 3D space. The datasets you are recording come from a 3D brain and it isn't necessary to project that down into 2D space, although that's how most of us have been trained. Our tools are an initial attempt at getting away from that paradigm.
+
+If you are a programmer and you're excited about building inuitive and interactive 3D visualization software we need your help! Right now we're building Pinpoint, which is designed for electrophysiology trajectory planning, but we're also working on rendering software and educational tools for neuroscience classrooms. Send an email, get in touch, lets build cool things!
+
+## Pinpoint Overview
+
+At any time, you can press the H key to bring up the help menu, as well as the many different settings panels that can be tweaked to modify the behavior of Pinpoint. For now you can leave the defaults in place while we design our first trajectory.
+
+### Camera control
+
+When you load Pinpoint this is the scene that you will be presented with. In the center of the screen you are seeing a 3D model of the mouse brain which we've taken from the Allen common coordinate framework. To control the mouse brain left click and drag on the screen. Dragging along the X axis yaws the brain and dragging along the Y axis pitches the brain. You can also hold space bar and move along the X axis to spin the brain. If you need to snap to an axial, saggital, or coronal view you can do that with the axis controller at the top right of the screen.
+
+You can also pan the camera with the right mouse button and zoom with your scroll wheel.
+
+### Areas
+
+To highlight individual 3D areas inside of the brain model you can use the search bar on the right side of the screen. Search for areas using their acronyms and click to enable or disable them.
+
+### Probe control
+
+The buttons on the right side of the screen add different kinds of probes to the scene view. For now we'll put a Neuropixels 1.0 probe into the scene. The probe is going to spawn at what's called the "reference point" in the scene, which by default is set to Bregma.
+
+Internally your probe is represented by the position of the tip and the set of angles on the probe. We call the azimuth angle PHI, this is the angle the probe is facing relative to the brain. The elevation angle is THETA, this is the angle of attack relative to vertical. Finally the spin angle is the rotation of the probe on its own axis. 
+
+You have two options for controlling the position and angles of the probe. You can use your mouse to click and drag the probe in the scene, or you can use the keyboard to make fine adjustments in the position. Lets start with clicking and dragging.
+
+First, click and hold the left mouse button with the mouse placed over the probe 3D object. Now, press the W or S key. These keys represent the anterior posterior axis, and dragging your probe along that axis will now cause it to move in space. The left-right axis is controlled by the A/D keys, the dorsal-ventral axis by the Q/E keys, and the depth axis by the Z/X keys. You can also change the phi and theta angles using 1/3 and R/F.
+
+If you want to make incremental movements on any of the axes you can just click any of those keys individually in 10 um increments. Hold shift to move in 100 um increments or ctrl to make tiny 1 um adjustments.
+
+You've probably noticed that while moving the probe the panel on the left side of the screen as well as the in-plane slice on the top right both updated to show which brain regions the probe was going through. We're working on updating the recording region to use channel maps, but for now you can set the size of this region or disable it in the settings and you can use T and G to adjust the vetical position on your probe. 
+
+### Probe coordinates
+
+Pinpoint automatically calculates the coordinates you will need for your recording by finding the entry point, angles, and depth of your probe. We have a separate page with a brief explanation of how to use the coordinates for surgery as well as some tips for doing that effectively. 
+
+### Rigs
+
+One of the great features of Pinpoint is that we can place other 3D objects into the scene to get an intuition for 3D rig space is like as well as to check for collisions. You can access the rig models by going to the Rig tab in the settings. If you want to add a new rig part to Pinpoint just email us the 3D model file and we can get that included.
+
+Lets turn on the well model that we use in the Steinmetz lab. As you can see, running a probe into the 3D model will highlight that a collision is occurring. You can also check for collisions against other probes in the scene, and this feature can be disabled in the Probes settings sub-menu.
+
+Lets turn on the skull model now.
+
+With the mouse skull turned on we can now see where exactly Bregma lies over the skull surface. The skull also has a craniotomy feature, which we can turn on the Probe settings menu. This lets us make a hole in the skull at a particular AP or ML coordinate.
+
+### Areas and Atlas settings
+
+The Areas sub-menu has a few graphical features that change what text is displayed. The Beryl regions option drops brain areas that we consider to be superfluous for most planning purposes, including the white matter tracts and the individual layers of cortex. You can turn these back on at any time.
+
+The Atlas sub-menu allows you to enable and disable the in-plane slice and the 3D model slicing as well as control the relative brain coordinate, which is by default set to Bregma.
+
+### in vivo Alignment
+
+The last option in the Atlas settings is the Coordinate Transform dropdown. This transformation is our best estimate of the conversion between the Allen common coordinate framework and the in vivo mouse brain. You can disable this transformation by using the CCF Atlas option in the dropdown, but this is not recommended! There is a separate page in the documentation just describing the in vivo alignment step, please read it before changing the defaults.
+
+### Ephys link
+
+### Accounts
